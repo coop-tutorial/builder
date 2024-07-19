@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mario Port Android</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            margin: 0;
+        }
+        h1, h2 {
+            color: #ffffff;
+        }
+        a {
+            color: #1e90ff;
+        }
+        pre, code {
+            background-color: #1e1e1e;
+            color: #dcdcdc;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        button {
+            background-color: #1e90ff;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #1c86ee;
+        }
+        .tip {
+            background-color: #2e2e2e;
+            border-left: 5px solid #1e90ff;
+            padding: 10px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        #modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #1e1e1e;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            animation: zoom-fade 0.5s ease;
+        }
+        @keyframes zoom-fade {
+            from {
+                transform: translate(-50%, -50%) scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+        }
+        #modal button {
+            background-color: #1e90ff;
+            margin-top: 20px;
+        }
+        footer {
+            margin-top: 50px;
+            text-align: center;
+        }
+        footer a {
+            color: #1e90ff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mario Port Android</h1>
+    <p>Todo lo que necesitas es una ROM de Super Mario 64 de USA, nombrada <code>baserom.us.z64</code>. Puede estar en la raíz de descargas o en la raíz del almacenamiento interno, ¡de cualquier manera probablemente la encontrará!</p>
+    <h2>DESCARGAR TERMUX</h2>
+    <button class="button-container">Descargar APK</button>
+    <p>Las compilaciones externas de SM64EX necesitan que el <code>base.zip</code> se mueva a <code>Android/data/files/res/</code>. El <code>base.zip</code> se encuentra dentro del constructor de SM64 en la carpeta <code>sm64-izzys-port-android/build/us_pc/res/</code></p>
+
+    <p><strong>Usa los siguientes comandos:</strong></p>
+
+    <h2>Para construir Coop</h2>
+    <pre id="command1"><code>bash <(curl -Ls https://github.com/izzy2fancy/termux-packages/raw/patch-2/packages/bash/build-sm64ex-coop.sh)</code></pre>
+    <div class="button-container">
+        <button onclick="copyCommand('command1')">Copiar Comando</button>
+    </div>
+
+    <h2>Para construir Coop Render96 HD</h2>
+    <pre id="command2"><code>bash <(curl -Ls https://github.com/izzy2fancy/termux-packages/raw/patch-2/packages/bash/build-sm64ex-coop-render96.sh)</code></pre>
+    <div class="button-container">
+        <button onclick="copyCommand('command2')">Copiar Comando</button>
+    </div>
+
+    <h2>Para construir OMM</h2>
+    <pre id="command3"><code>bash <(curl -Ls https://github.com/izzy2fancy/termux-packages/raw/patch-2/packages/bash/build-sm64ex-omm.sh)</code></pre>
+    <div class="button-container">
+        <button onclick="copyCommand('command3')">Copiar Comando</button>
+    </div>
+
+    <h2>Para construir ALO</h2>
+    <pre id="command4"><code>bash <(curl -Ls https://github.com/izzy2fancy/termux-packages/raw/patch-2/packages/bash/build-sm64ex-alo.sh)</code></pre>
+    <div class="button-container">
+        <button onclick="copyCommand('command4')">Copiar Comando</button>
+    </div>
+
+    <h2>Para construir SM64EX internal</h2>
+    <pre id="command5"><code>bash <(curl -Ls https://github.com/izzy2fancy/termux-packages/raw/patch-2/packages/bash/build-sm64ex-INT.sh)</code></pre>
+    <div class="button-container">
+        <button onclick="copyCommand('command5')">Copiar Comando</button>
+    </div>
+
+    <h2>Para construir SM64EX internal No Touch</h2>
+    <pre id="command6"><code>bash <(curl -Ls https://github.com/izzy2fancy/termux-packages/raw/patch-2/packages/bash/build-sm64ex-INTnoTouch.sh)</code></pre>
+    <div class="button-container">
+        <button onclick="copyCommand('command6')">Copiar Comando</button>
+    </div>
+
+    <h2>Para construir SM64EX external (necesita los Assets movidos a <code>Android/data/files/res/</code>)</h2>
+    <pre id="command7"><code>bash <(curl -Ls https://github.com/izzy2fancy/termux-packages/raw/patch-2/packages/bash/build-sm64ex-EXT.sh)</code></pre>
+    <div class="button-container">
+        <button onclick="copyCommand('command7')">Copiar Comando</button>
+    </div>
+
+    <h2>Para construir SM64EX external No Touch (necesita los Assets movidos a <code>Android/data/files/res/</code>)</h2>
+    <pre id="command8"><code>bash <(curl -Ls https://github.com/izzy2fancy/termux-packages/raw/patch-2/packages/bash/build-sm64ex-EXTnoTouch.sh)</code></pre>
+    <div class="button-container">
+        <button onclick="copyCommand('command8')">Copiar Comando</button>
+    </div>
+
+    <h2>Para construir SM64EX Porcino</h2>
+    <pre id="command9"><code>bash <(curl -Ls https://github.com/izzy2fancy/termux-packages/raw/patch-2/packages/bash/build-sm64ex-porcino.sh)</code></pre>
+    <div class="button-container">
+        <button onclick="copyCommand('command9')">Copiar Comando</button>
+    </div>
+
+    <h2>Para construir SM64EX Star Road</h2>
+    <pre id="command10"><code>bash <(curl -Ls https://github.com/izzy2fancy/termux-packages/raw/patch-2/packages/bash/build-starroad.sh)</code></pre>
+    <div class="button-container">
+        <button onclick="copyCommand('command10')">Copiar Comando</button>
+    </div>
+
+    <button id="share-button">Compartir Página</button>
+
+    <div id="modal">
+        <p>Comando copiado al portapapeles.</p>
+        <button onclick="closeModal()">Cerrar</button>
+    </div>
+
+    <footer>
+        <p>Créditos: <a href="https://youtube.com/@retired64" target="_blank">YouTube</a> | <a href="https://github.com/izzy2fancy/termux-app" target="_blank">izzy2fancy</a> | <a href="https://github.com/coop-tutorial/" target="_blank">retired64</a></p>
+    </footer>
+
+    <script>
+        function copyCommand(id) {
+            const commandText = document.getElementById(id).innerText;
+            navigator.clipboard.writeText(commandText).then(() => {
+                document.getElementById('modal').style.display = 'block';
+            }).catch(err => {
+                console.error('Error al copiar el comando:', err);
+            });
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        document.getElementById('share-button').addEventListener('click', async () => {
+            if (navigator.share) {
+                try {
+                    await navigator.share({
+                        title: 'Mario port Android Collections',
+                        text: 'Mira esta guía sobre cómo instalar Mario port en Android.',
+                        url: 'https://coop-tutorial.github.io/builder/'
+                    });
+                    console.log('Contenido compartido exitosamente');
+                } catch (err) {
+                    console.error('Error al compartir:', err);
+                }
+            } else {
+                alert('La función de compartir no está soportada en este navegador.');
+            }
+        });
+    </script>
+</body>
+</html>
