@@ -102,6 +102,126 @@
             text-decoration: none;
             margin: 0 10px;
         }
+/* Estilos para la tarjeta de Retired64 */
+.retired64-card {
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  max-width: 380px;
+  margin: 20px auto;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #f8f9fb 100%);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.retired64-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.retired64-header {
+  padding: 24px 24px 16px;
+  text-align: center;
+  background: linear-gradient(135deg, #ff4e50 0%, #f9d423 100%);
+  color: white;
+  position: relative;
+}
+
+.retired64-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 12px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.retired64-youtube-icon {
+  width: 32px;
+  height: 32px;
+  fill: #ff4e50;
+}
+
+.retired64-title {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.retired64-subtitle {
+  display: block;
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+.retired64-content {
+  padding: 24px;
+}
+
+.retired64-description {
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  font-size: 0.95rem;
+}
+
+.retired64-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 24px;
+  background-color: #ff4e50;
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(255, 78, 80, 0.2);
+}
+
+.retired64-button:hover {
+  background-color: #ff3336;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(255, 78, 80, 0.3);
+}
+
+.retired64-button-icon {
+  display: inline-flex;
+  margin-right: 8px;
+}
+
+.retired64-play-icon {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.retired64-footer {
+  padding: 16px 24px;
+  background-color: rgba(0, 0, 0, 0.02);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.retired64-credits {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  color: #777;
+}
+
+.retired64-heart-icon {
+  width: 16px;
+  height: 16px;
+  fill: #ff4e50;
+  margin-right: 6px;
+}
     </style>
 </head>
 <body>
@@ -111,7 +231,39 @@
     <a href="https://f-droid.org/repo/com.termux_118.apk" class="button-container">
     <button class="button-container">Descargar Termux APK</button>
     </a>
-
+<div class="retired64-card">
+  <div class="retired64-header">
+    <div class="retired64-icon">
+      <svg viewBox="0 0 24 24" class="retired64-youtube-icon">
+        <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+      </svg>
+    </div>
+    <h3 class="retired64-title">Retired64</h3>
+    <span class="retired64-subtitle">Tutoriales & Videojuegos</span>
+  </div>
+  
+  <div class="retired64-content">
+    <p class="retired64-description">Canal dedicado a tutoriales de desarrollo y análisis de videojuegos. Aprende técnicas creativas y descubre nuevos juegos indie.</p>
+    
+    <a href="https://youtube.com/@retired64" target="_blank" class="retired64-button">
+      <span class="retired64-button-icon">
+        <svg viewBox="0 0 24 24" class="retired64-play-icon">
+          <path d="M8 5v14l11-7z"/>
+        </svg>
+      </span>
+      Visitar Canal
+    </a>
+  </div>
+  
+  <div class="retired64-footer">
+    <div class="retired64-credits">
+      <svg viewBox="0 0 24 24" class="retired64-heart-icon">
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+      </svg>
+      <span>Recomendado por la comunidad</span>
+    </div>
+  </div>
+</div>
     <p>Las compilaciones externas de SM64EX necesitan que el <br><br><code>base.zip</code> <br><br>se mueva a <code>Android/data/files/res/</code><br><br>. El <code>base.zip</code><br><br> se encuentra dentro del constructor de SM64 en la carpeta<br> sm64-izzys-port-android/build/us_pc/res/</p>
 
     <p><strong>Usa los siguientes comandos:</strong></p>
